@@ -1,0 +1,27 @@
+[package]
+name = "xmas-elf"
+version = "0.10.0"
+authors = ["Nick Cameron <nrc@ncameron.org>"]
+description = "Library for parsing and navigating ELF data; zero-allocation, type-safe."
+license = "Apache-2.0 OR MIT"
+repository = "https://github.com/nrc/xmas-elf"
+keywords = ["elf", "parser", "binary"]
+exclude = ["test-data/*"]
+categories = ["parser-implementations", "os::unix-apis"]
+
+[dependencies]
+zero = "0.1"
+flate2 = { version = "1", optional = true }
+zstd = { version = "0.13", optional = true }
+
+[features]
+compression = ["flate2", "zstd"]
+
+[lib]
+name = "xmas_elf"
+
+[[bin]]
+path = "src/bin/main.rs"
+name = "xmas_elf"
+doc = false
+edition = "2021"
